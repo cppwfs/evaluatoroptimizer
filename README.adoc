@@ -1,0 +1,24 @@
+= LLM Router Example
+
+This is a Spring AI and Spring Integration application that implements the evaluate optimizer pattern.
+It utilizes Spring Integration to create the workflow for the https://github.com/spring-projects/spring-ai-examples/tree/main/agentic-patterns/evaluator-optimizer[Evaluator Optimizer Example] in the Spring Ai Samples.
+
+== Requirements:
+
+* Java 17 or Above
+
+== Build:
+
+[source,shell]
+----
+export OPENAI_API_KEY=<Your Open AI Key>
+mvn clean package
+----
+
+== Run:
+
+[source,shell]
+----
+export OPENAI_API_KEY=<your Open AI Key>
+java -jar target/evaluatoroptimizer-0.0.1-SNAPSHOT.jar
+----
