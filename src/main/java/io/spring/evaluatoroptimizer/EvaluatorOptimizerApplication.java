@@ -15,6 +15,7 @@
  */
 package io.spring.evaluatoroptimizer;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,6 +23,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.MessageBuilder;
 
+/**
+ * Main application class for the Evaluator Optimizer application.
+ * This application implements the evaluator-optimizer pattern using Spring Integration.
+ */
 @SpringBootApplication
 public class EvaluatorOptimizerApplication {
 

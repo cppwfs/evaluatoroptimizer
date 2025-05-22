@@ -17,8 +17,19 @@ package io.spring.evaluatoroptimizer;
 
 import org.springframework.ai.chat.client.ChatClient;
 
+/**
+ * Service class responsible for generating and evaluating code solutions.
+ * This class interacts with a ChatClient to generate code based on a task and evaluate
+ * the generated code against specified criteria.
+ */
 public class GeneratorEvaluator {
 
+    /**
+     * Default prompt for the code generator.
+     * This prompt instructs the AI model to generate code based on the input task and any feedback
+     * from previous generations. It specifies the exact format for the response, including rules
+     * for proper JSON formatting and code escaping.
+     */
     public static final String DEFAULT_GENERATOR_PROMPT = """
 			Your goal is to complete the task based on the input. If there are feedback
 			from your previous generations, you should reflect on them to improve your solution.
@@ -42,6 +53,12 @@ public class GeneratorEvaluator {
 			Follow this format EXACTLY - your response must be valid JSON on a single line.
 			""";
 
+    /**
+     * Default prompt for the code evaluator.
+     * This prompt instructs the AI model to evaluate code for correctness, time complexity,
+     * best practices, and proper JavaDoc documentation. It specifies the exact format for the
+     * evaluation response, including the possible evaluation values.
+     */
     public static final String DEFAULT_EVALUATOR_PROMPT = """
 			Evaluate this code implementation for correctness, time complexity, and best practices.
 			Ensure the code have proper javadoc documentation.
@@ -53,8 +70,16 @@ public class GeneratorEvaluator {
 			Use "PASS" only if all criteria are met with no improvements needed.
 			""";
 
+    /**
+     * The ChatClient used to interact with the AI model.
+     */
     private ChatClient chatClient;
 
+    /**
+     * Constructs a new GeneratorEvaluator with the specified ChatClient.
+     *
+     * @param chatClient The ChatClient to use for generating and evaluating code
+     */
     public GeneratorEvaluator(ChatClient chatClient) {
         this.chatClient = chatClient;
     }
